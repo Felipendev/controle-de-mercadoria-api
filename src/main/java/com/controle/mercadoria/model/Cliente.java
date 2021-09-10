@@ -1,34 +1,44 @@
 package com.controle.mercadoria.model;
 
+import com.controle.mercadoria.enums.StatusProduto;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
+import java.util.List;
 
-@Getter
-@Setter
+@Data
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Cliente {
+
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String codigo;
-
-    @NotEmpty(message = "o nome não pode estar vazio")
     private String nome;
 
-    private String contato;
+    private String codigo;
+
+    private String sobrenome;
+
     private LocalDateTime dataRecebimento;
+
     private LocalDateTime dataDeEntrega;
 
-    @Builder.Default
-    private StatusProduto statusProduto = StatusProduto.RECEBIDO;}
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    private List<Phone> telefones;
+
+    private StatusProduto statusProduto = StatusProduto.RECEBIDO;
+}

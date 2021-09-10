@@ -1,4 +1,4 @@
-package com.controle.mercadoria.model;
+package com.controle.mercadoria.enums;
 
 public enum StatusProduto {
     ENTREGUE, RECEBIDO

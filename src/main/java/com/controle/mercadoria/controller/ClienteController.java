@@ -1,33 +1,29 @@
 package com.controle.mercadoria.controller;
 
+import com.controle.mercadoria.dto.response.MessageResponseDTO;
 import com.controle.mercadoria.model.Cliente;
-import com.controle.mercadoria.repository.ClienteRepository;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import com.controle.mercadoria.service.ClienteService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@AllArgsConstructor
-@NoArgsConstructor
+@RequestMapping("/api/v1/cliente")
 public class ClienteController {
-    private ClienteRepository clienteRepository;
+    private ClienteService clienteService;
 
-
-    @GetMapping("/api/cliente/{codigo}")
-    public ResponseEntity consultar(@PathVariable("codigo") String codigo) {
-        return clienteRepository.buscaClientePorCodigo(codigo).stream()
-                .map(record -> ResponseEntity.ok().body(record)).findAny().orElse(ResponseEntity.notFound().build());
+    @Autowired
+    public ClienteController(ClienteService clienteService) {
+        this.clienteService = clienteService;
     }
 
-    @PostMapping(path = "api/usuario/salvar")
-    public Cliente salvar(@RequestBody Cliente cliente) {
-        return clienteRepository.save(cliente);
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public MessageResponseDTO criaCliente(@RequestBody Cliente cliente) {
+        return clienteService.criaCliente(cliente);
     }
-
-
 }

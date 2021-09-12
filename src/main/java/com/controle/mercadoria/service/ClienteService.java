@@ -8,6 +8,9 @@ import com.controle.mercadoria.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ClienteService {
 
@@ -28,5 +31,11 @@ public class ClienteService {
                 .builder()
                 .mensagem("Cliente criado com o ID " + clienteSalvo.getId())
                 .build();
+    }
+
+    public List<ClienteDTO> listAll() {
+        List<Cliente> todosClientes = clienteRepository.findAll();
+        return todosClientes.stream().map(clienteMapper::toDTO)
+                .collect(Collectors.toList());
     }
 }

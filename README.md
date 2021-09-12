@@ -14,11 +14,11 @@ Para executar o projeto no terminal, digite o seguinte comando:
 mvn spring-boot:run 
 ```
 
-Após executar o comando acima, basta apenas abrir o seguinte endereço e visualizar a execução do projeto:
+Após executar o comando acima, basta apenas abrir o Insomnia e visualizar a execução dos testes do projeto:
 
-```
-http://localhost:8080/api/v1/cliente
-```
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Teste%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2FFelipendev%2Fcontrole-de-mercadoria-api%2Fmain%2FInsomnia.json)
+
+
 
 
 São necessários os seguintes pré-requisitos para a execução do projeto:

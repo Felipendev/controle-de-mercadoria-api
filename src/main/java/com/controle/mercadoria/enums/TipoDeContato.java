@@ -9,7 +9,7 @@ public enum TipoDeContato {
 
     CASA("Casa"),
     CELULAR("Celular"),
-    Comercial("Comercial");
+    COMERCIAL("Comercial");
 
     private final String descricao;
 

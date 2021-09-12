@@ -7,6 +7,7 @@ import com.controle.mercadoria.service.ClienteService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,5 +39,11 @@ public class ClienteController {
     @GetMapping(value = "/{id}")
     public ClienteDTO buscaPorId(@PathVariable Long id) throws ClienteNotFoundException {
         return clienteService.buscaPorId(id);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletaCliente(@PathVariable Long id) throws ClienteNotFoundException {
+        clienteService.delete(id);
     }
 }

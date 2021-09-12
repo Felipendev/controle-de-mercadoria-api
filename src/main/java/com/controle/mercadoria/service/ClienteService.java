@@ -42,7 +42,18 @@ public class ClienteService {
     }
 
     public ClienteDTO buscaPorId(Long id) throws ClienteNotFoundException {
-        Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new ClienteNotFoundException(id));
+        Cliente cliente = verificaSeExiste(id);
         return clienteMapper.toDTO(cliente);
+    }
+
+
+    public void delete(Long id) throws ClienteNotFoundException {
+        verificaSeExiste(id);
+        clienteRepository.deleteById(id);
+
+    }
+
+    private Cliente verificaSeExiste(Long id) throws ClienteNotFoundException {
+        return clienteRepository.findById(id).orElseThrow(() -> new ClienteNotFoundException(id));
     }
 }

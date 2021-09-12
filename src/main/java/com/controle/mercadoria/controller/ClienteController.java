@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -33,12 +34,17 @@ public class ClienteController {
 
     @GetMapping(value = "/listAll")
     public List<ClienteDTO> buscaTodos() {
-       return clienteService.listAll();
+       return clienteService.buscaPorTodos();
     }
 
     @GetMapping(value = "/{id}")
     public ClienteDTO buscaPorId(@PathVariable Long id) throws ClienteNotFoundException {
         return clienteService.buscaPorId(id);
+    }
+
+    @PutMapping(value = "/{id}")
+    public MessageResponseDTO atualizaPorId(@PathVariable Long id, @RequestBody @Valid ClienteDTO clienteDTO) throws ClienteNotFoundException {
+        return clienteService.atualizaPorId(id, clienteDTO);
     }
 
     @DeleteMapping(value = "/{id}")

@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,13 +28,10 @@ public class ClienteService {
         Cliente clienteParaSalvar = clienteMapper.toModel(clienteDTO);
 
         Cliente clienteSalvo = clienteRepository.save(clienteParaSalvar);
-        return MessageResponseDTO
-                .builder()
-                .mensagem("Cliente criado com o ID " + clienteSalvo.getId())
-                .build();
+        return buildCliente(clienteSalvo.getId(), "Cliente criado com o ID ");
     }
 
-    public List<ClienteDTO> listAll() {
+    public List<ClienteDTO> buscaPorTodos() {
         List<Cliente> todosClientes = clienteRepository.findAll();
         return todosClientes.stream().map(clienteMapper::toDTO)
                 .collect(Collectors.toList());
@@ -53,7 +49,21 @@ public class ClienteService {
 
     }
 
+    public MessageResponseDTO atualizaPorId(Long id, ClienteDTO clienteDTO) throws ClienteNotFoundException {
+        verificaSeExiste(id);
+        Cliente clienteParaAtualizar = clienteMapper.toModel(clienteDTO);
+        Cliente clienteAtualizado = clienteRepository.save(clienteParaAtualizar);
+        return buildCliente(clienteAtualizado.getId(), "Cliente atualizado com o ID ");
+    }
+
     private Cliente verificaSeExiste(Long id) throws ClienteNotFoundException {
         return clienteRepository.findById(id).orElseThrow(() -> new ClienteNotFoundException(id));
+    }
+
+    private MessageResponseDTO buildCliente(Long id, String mensagem) {
+        return MessageResponseDTO
+                .builder()
+                .mensagem(mensagem + id)
+                .build();
     }
 }

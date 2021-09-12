@@ -6,6 +6,7 @@ import com.controle.mercadoria.exception.ClienteNotFoundException;
 import com.controle.mercadoria.mapper.ClienteMapper;
 import com.controle.mercadoria.model.Cliente;
 import com.controle.mercadoria.repository.ClienteRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,16 +14,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class ClienteService {
 
     private ClienteRepository clienteRepository;
 
     private final ClienteMapper clienteMapper = ClienteMapper.INSTANCE;
-
-    @Autowired
-    public ClienteService(ClienteRepository clienteRepository) {
-        this.clienteRepository = clienteRepository;
-    }
 
     public MessageResponseDTO criaCliente(ClienteDTO clienteDTO) {
         Cliente clienteParaSalvar = clienteMapper.toModel(clienteDTO);

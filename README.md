@@ -1,6 +1,6 @@
-<h2>Desenvolvendo um sistema de gerenciamento de produtos em API REST com Spring Boot</h2>
+<h2>Desenvolvendo um sistema de gerenciamento de produtos em API REST com Spring Boot com integração a aplicação em Angular</h2>
 
-Foram desenvolvidos e abordados os seguintes tópicos:
+Topicos envolvidos nessa implementeação:
 
 * Setup inicial de projeto com o Spring Boot Initializer
 * Criação de modelo de dados para o mapeamento de entidades em bancos de dados

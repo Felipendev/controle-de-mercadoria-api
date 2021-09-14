@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LojaMultibomControleMercadoriaJavaApplication {
+public class ControleMercadoriaJavaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LojaMultibomControleMercadoriaJavaApplication.class, args);
+		SpringApplication.run(ControleMercadoriaJavaApplication.class, args);
 	}
 
 }

@@ -26,7 +26,6 @@ São necessários os seguintes pré-requisitos para a execução do projeto: :ar
 * Java 11 ou versões superiores.
 * Maven 4.0.0 ou versões superiores.
 * Sua IDE favorita.
-* Controle de versão GIT instalado na sua máquina.
 
 
 

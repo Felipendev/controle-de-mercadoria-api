@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PhoneDTO {
+public class TelefoneDTO {
 
     private Long Id;
 

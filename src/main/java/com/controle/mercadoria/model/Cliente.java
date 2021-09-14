@@ -43,7 +43,7 @@ public class Cliente {
     private LocalDateTime dataDeEntrega;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    private List<Phone> telefones;
+    private List<Telefone> telefones;
 
     @Builder.Default
     private StatusProduto statusProduto = StatusProduto.RECEBIDO;

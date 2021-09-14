@@ -1,7 +1,6 @@
 package com.controle.mercadoria.dto.request;
 
 import com.controle.mercadoria.enums.StatusProduto;
-import com.controle.mercadoria.model.Phone;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,13 +24,14 @@ public class ClienteDTO {
     @Size(min = 2, max = 100)
     private String nome;
 
-    @NotEmpty
-    @Size(min = 2, max = 100)
-    private String codigo;
 
     @NotEmpty
     @Size(min = 2, max = 100)
     private String sobrenome;
+
+    @NotEmpty
+    @Size(min = 2, max = 100)
+    private String codigo;
 
     private LocalDateTime dataRecebimento;
 
@@ -39,7 +39,7 @@ public class ClienteDTO {
 
     @Valid
     @NotEmpty
-    private List<Phone> telefones;
+    private List<TelefoneDTO> telefones;
 
     private StatusProduto statusProduto = StatusProduto.RECEBIDO;
 }

@@ -4,8 +4,8 @@ Topicos envolvidos nessa implementeação: :arrow_down:
 
 * Setup inicial de projeto com o Spring Boot Initializer
 * Criação de modelo de dados para o mapeamento de entidades em bancos de dados
-* Desenvolvimento de operações de gerenciamento de clientes (Cadastro, leitura, atualização e remoção de pessoas do sistema).
-* Desenvolvimento de testes unitários para validação das funcionalidades
+* Desenvolvimento de operações de gerenciamento de clientes (CRUD - Cadastro, leitura, atualização e remoção de pessoas do sistema).
+* Desenvolvimento de testes unitários para validação das funcionalidades(MOKITO)
 * Implantação do sistema na nuvem através do Heroku
 
 Para executar o projeto no terminal, digite o seguinte comando: :arrow_down:

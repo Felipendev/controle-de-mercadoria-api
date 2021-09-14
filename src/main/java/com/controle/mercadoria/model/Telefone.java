@@ -16,7 +16,7 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Phone {
+public class Telefone {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

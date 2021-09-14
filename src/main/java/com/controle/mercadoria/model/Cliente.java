@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -27,12 +28,16 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String nome;
 
+    @Column(nullable = false, unique = true)
     private String codigo;
 
+    @Column(nullable = false)
     private String sobrenome;
 
+    @Column(nullable = false)
     private LocalDateTime dataRecebimento;
 
     private LocalDateTime dataDeEntrega;
@@ -40,5 +45,6 @@ public class Cliente {
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private List<Phone> telefones;
 
+    @Builder.Default
     private StatusProduto statusProduto = StatusProduto.RECEBIDO;
 }

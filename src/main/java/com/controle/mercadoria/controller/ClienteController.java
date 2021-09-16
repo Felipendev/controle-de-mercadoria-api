@@ -7,6 +7,7 @@ import com.controle.mercadoria.service.ClienteService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,27 +27,32 @@ import java.util.List;
 public class ClienteController {
     private ClienteService clienteService;
 
+    @CrossOrigin
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public MessageResponseDTO criaCliente(@RequestBody @Valid ClienteDTO clienteDTO) {
         return clienteService.criaCliente(clienteDTO);
     }
 
+    @CrossOrigin
     @GetMapping(value = "/listAll")
     public List<ClienteDTO> buscaTodos() {
        return clienteService.buscaPorTodos();
     }
 
+    @CrossOrigin
     @GetMapping(value = "/{id}")
     public ClienteDTO buscaPorId(@PathVariable Long id) throws ClienteNotFoundException {
         return clienteService.buscaPorId(id);
     }
 
+    @CrossOrigin
     @PutMapping(value = "/{id}")
     public MessageResponseDTO atualizaPorId(@PathVariable Long id, @RequestBody @Valid ClienteDTO clienteDTO) throws ClienteNotFoundException {
         return clienteService.atualizaPorId(id, clienteDTO);
     }
 
+    @CrossOrigin
     @DeleteMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletaCliente(@PathVariable Long id) throws ClienteNotFoundException {

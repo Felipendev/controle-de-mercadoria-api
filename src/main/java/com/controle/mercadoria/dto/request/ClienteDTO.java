@@ -1,5 +1,6 @@
 package com.controle.mercadoria.dto.request;
 
+
 import com.controle.mercadoria.enums.StatusProduto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +11,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @Builder
@@ -39,7 +39,8 @@ public class ClienteDTO {
 
     @Valid
     @NotEmpty
-    private List<TelefoneDTO> telefones;
+    private String contato;
 
     private StatusProduto statusProduto = StatusProduto.RECEBIDO;
+
 }

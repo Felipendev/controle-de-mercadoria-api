@@ -6,16 +6,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @Entity
@@ -42,8 +38,8 @@ public class Cliente {
 
     private LocalDateTime dataDeEntrega;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    private List<Telefone> telefones;
+    @Column(nullable = false)
+    private String contato;
 
     @Builder.Default
     private StatusProduto statusProduto = StatusProduto.RECEBIDO;

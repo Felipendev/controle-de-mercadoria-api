@@ -25,7 +25,7 @@ public class ClienteServiceTest {
     private ClienteService clienteService;
 
     @Test
-    void testDadoDTOEntaoReturnMensagem() {
+    void testDadoDTOEntaoRetornaMensagem() {
         ClienteDTO clienteDTO = criaFakeDTO();
         Cliente clienteSalvoEsperado = criaFakeEntity();
 

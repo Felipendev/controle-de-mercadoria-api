@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -33,10 +34,9 @@ public class Cliente {
     @Column(nullable = false)
     private String sobrenome;
 
-    @Column(nullable = false)
-    private LocalDateTime dataRecebimento;
+    private LocalDate dataRecebimento;
 
-    private LocalDateTime dataDeEntrega;
+    private LocalDate dataDeEntrega;
 
     @Column(nullable = false)
     private String contato;

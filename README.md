@@ -16,7 +16,7 @@ mvn spring-boot:run
 
 Após executar o comando acima, basta apenas abrir o Insomnia e visualizar a execução dos testes do projeto:
 
-**Link para testes ** :arrow_down:
+**Link para testes** :arrow_down:
 
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Teste%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2FFelipendev%2Fcontrole-de-mercadoria-api%2Fmain%2FInsomnia.json)
 

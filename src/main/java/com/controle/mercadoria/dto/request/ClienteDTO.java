@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -33,9 +33,9 @@ public class ClienteDTO {
     @Size(min = 2, max = 100)
     private String codigo;
 
-    private LocalDateTime dataRecebimento;
+    private LocalDate dataRecebimento;
 
-    private LocalDateTime dataDeEntrega;
+    private LocalDate dataDeEntrega;
 
     @Valid
     @NotEmpty

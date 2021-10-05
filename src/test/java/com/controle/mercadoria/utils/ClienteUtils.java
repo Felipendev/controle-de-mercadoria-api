@@ -4,7 +4,7 @@ import com.controle.mercadoria.dto.request.ClienteDTO;
 import com.controle.mercadoria.enums.StatusProduto;
 import com.controle.mercadoria.model.Cliente;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class ClienteUtils {
     private static final Long CLIENTE_ID = 1L;
@@ -12,7 +12,7 @@ public class ClienteUtils {
     private static final String SOBRENOME = "Felipe";
     private static final String CODIGO = "0001";
     private static final String CONTATO = "73981230810";
-    private static final LocalDateTime DATA_RECEBIMENTO = LocalDateTime.of(2021,9,14, 9,12) ;
+    private static final LocalDate DATA_RECEBIMENTO = LocalDate.of(2021,10,04) ;
     private static final StatusProduto STATUS_PRODUTO = StatusProduto.RECEBIDO;
 
     public static ClienteDTO criaFakeDTO() {

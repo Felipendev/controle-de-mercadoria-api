@@ -31,36 +31,37 @@ public class AdmController {
 
     @GetMapping("/listarTodos")
     public ResponseEntity<List<AdmModel>> listarTodos() {
-        log.info("[Inicia] AdmRepository - listarTodos");
+        log.info("[Inicia] AdmController - listarTodos");
         ResponseEntity<List<AdmModel>> listResponseEntity = ResponseEntity.ok(repository.findAll());
-        log.info("[Finaliza] AdmRepository - listarTodos");
+        log.info("[Finaliza] AdmController - listarTodos");
         return listResponseEntity;
     }
 
     @GetMapping("/validarSenha")
     public ResponseEntity<Boolean> validarSenha(@RequestParam String login,
                                                 @RequestParam String password){
+        log.info("[Inicia] AdmController - validarSenha");
         Optional<AdmModel> optionalAdm = repository.findByLogin(login);
         if(optionalAdm.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
+            ResponseEntity<Boolean> response = ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
+            return response;
         }
-
         boolean valid = false;
-
         AdmModel adm = optionalAdm.get();
         valid = encoder.matches(password, adm.getPassword());
-
         HttpStatus status = (valid) ? HttpStatus.OK : HttpStatus.UNAUTHORIZED;
-        return ResponseEntity.status(status).body(valid);
+        ResponseEntity<Boolean> response = ResponseEntity.status(status).body(valid);
+        log.info("[Finaliza] AdmController - validarSenha");
+        return response;
     }
 
     @PostMapping("/salvar")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<AdmModel> salvar(@RequestBody AdmModel adm) {
-        log.info("[Inicia] AdmRepository - salvar");
+        log.info("[Inicia] AdmController - salvar");
         adm.setPassword(encoder.encode(adm.getPassword()));
         ResponseEntity<AdmModel> admSalvo = ResponseEntity.ok(repository.save(adm));
-        log.info("[Finaliza] AdmRepository - salvar");
+        log.info("[Finaliza] AdmController - salvar");
         return admSalvo;
     }
 }

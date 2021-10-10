@@ -24,7 +24,7 @@ public class  ClienteService {
     private final ClienteMapper clienteMapper = ClienteMapper.INSTANCE;
 
     public MessageResponseDTO criaCliente(ClienteDTO clienteDTO) {
-        log.info("[Inicio] ClienteService - criaCliente");
+        log.info("[Inicia] ClienteService - criaCliente");
         Cliente clienteParaSalvar = clienteMapper.toModel(clienteDTO);
         Cliente clienteSalvo = clienteRepository.save(clienteParaSalvar);
         log.info("[Finaliza] ClienteService - criaCliente");
@@ -41,7 +41,7 @@ public class  ClienteService {
     }
 
     public ClienteDTO buscaPorId(Long id) throws ClienteNotFoundException {
-        log.info("[Inicio] ClienteService - buscaPorId");
+        log.info("[Inicia] ClienteService - buscaPorId");
         Cliente cliente = verificaSeExiste(id);
         log.info("[Finaliza] ClienteService - buscaPorId");
         return clienteMapper.toDTO(cliente);
@@ -49,20 +49,20 @@ public class  ClienteService {
 
 
     public void delete(Long id) throws ClienteNotFoundException {
-        log.info("[Inicio] ClienteService - delete");
+        log.info("[Inicia] ClienteService - delete");
         verificaSeExiste(id);
         clienteRepository.deleteById(id);
         log.info("[Finaliza] ClienteService - delete");
+
     }
 
     public MessageResponseDTO atualizaPorId(Long id, ClienteDTO clienteDTO) throws ClienteNotFoundException {
-        log.info("[Inicio] ClienteService - atualizaPorId");
+        log.info("[Inicia] ClienteService - atualizaPorId");
         verificaSeExiste(id);
         Cliente clienteParaAtualizar = clienteMapper.toModel(clienteDTO);
         Cliente clienteAtualizado = clienteRepository.save(clienteParaAtualizar);
-        MessageResponseDTO mensagemClienteCriadoComSucesso = buildCliente(clienteAtualizado.getId(), "Cliente atualizado com o ID ");
         log.info("[Finaliza] ClienteService - atualizaPorId");
-        return mensagemClienteCriadoComSucesso;
+        return buildCliente(clienteAtualizado.getId(), "Cliente atualizado com o ID ");
     }
 
     private Cliente verificaSeExiste(Long id) throws ClienteNotFoundException {

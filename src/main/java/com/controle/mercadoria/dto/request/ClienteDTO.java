@@ -35,8 +35,11 @@ public class ClienteDTO {
     @Size(min = 2, max = 100)
     private String codigo;
 
+<<<<<<< HEAD
     @NotEmpty
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE, fallbackPatterns = { "M/d/yy", "dd.MM.yyyy" })
+=======
+>>>>>>> a91bbd90b18aa5ac59837e47442aab5ba10e384c
     private LocalDate dataRecebimento;
 
     private LocalDate dataDeEntrega;

@@ -5,6 +5,10 @@ import com.controle.mercadoria.enums.StatusProduto;
 import com.controle.mercadoria.model.Cliente;
 
 import java.time.LocalDate;
+<<<<<<< HEAD
+import java.time.LocalDateTime;
+=======
+>>>>>>> a91bbd90b18aa5ac59837e47442aab5ba10e384c
 
 public class ClienteUtils {
     private static final Long CLIENTE_ID = 1L;
@@ -12,7 +16,11 @@ public class ClienteUtils {
     private static final String SOBRENOME = "Felipe";
     private static final String CODIGO = "0001";
     private static final String CONTATO = "73981230810";
+<<<<<<< HEAD
+    private static final LocalDate DATA_RECEBIMENTO = LocalDate.of(2021,9,14) ;
+=======
     private static final LocalDate DATA_RECEBIMENTO = LocalDate.of(2021,10,04) ;
+>>>>>>> a91bbd90b18aa5ac59837e47442aab5ba10e384c
     private static final StatusProduto STATUS_PRODUTO = StatusProduto.RECEBIDO;
 
     public static ClienteDTO criaFakeDTO() {

@@ -12,10 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
-<<<<<<< HEAD
-import java.time.LocalDateTime;
-=======
->>>>>>> a91bbd90b18aa5ac59837e47442aab5ba10e384c
+
 
 @Data
 @Entity
@@ -37,10 +34,8 @@ public class Cliente {
     @Column(nullable = false)
     private String sobrenome;
 
-<<<<<<< HEAD
-=======
+
     @Column(nullable = false)
->>>>>>> a91bbd90b18aa5ac59837e47442aab5ba10e384c
     private LocalDate dataRecebimento;
 
     private LocalDate dataDeEntrega;

@@ -21,27 +21,25 @@ public class ClienteDTO {
 
     private Long id;
 
-    @NotEmpty
+
     @Size(min = 2, max = 100)
     private String nome;
 
 
-    @NotEmpty
+
     @Size(min = 2, max = 100)
     private String sobrenome;
 
-    @NotEmpty
+
     @Size(min = 2, max = 100)
     private String codigo;
 
-    @NotEmpty
     private LocalDate dataRecebimento;
 
     private LocalDate dataDeEntrega;
 
     @Valid
-    @NotEmpty
-    @Pattern(regexp = "^\\(?(?:[14689][1-9]|2[12478]|3[1234578]|5[1345]|7[134579])\\)? ?(?:[2-8]|9[1-9])[0-9]{3}\\-?[0-9]{4}$", message = "o numero de celular  deve ser valido")
+    @Pattern(regexp = "^\\(?(?:[14689][1-9]|2[12478]|3[1234578]|5[1345]|7[134579])\\)? ?(?:[2-8]|9[1-9])[0-9]{3}\\-?[0-9]{4}$", message = "o numero de celular deve ser valido")
     private String contato;
 
     @Builder.Default
